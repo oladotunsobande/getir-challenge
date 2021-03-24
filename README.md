@@ -45,6 +45,8 @@ The REST API documentation for this application is available via the following l
 
 The documentation consists of all information needed to test the API.
 
+The `BASE_URL` for the server is `http://3.213.192.193:5660`.
+
 ## Author
 
 * **Oladotun Sobande** - Backend development
