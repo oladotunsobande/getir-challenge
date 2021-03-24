@@ -1,6 +1,22 @@
 const { Record } = require('../models');
 
+/**
+ * Repository class for querying the record collection
+ * @type {RecordRepository}
+ */
 class RecordRepository {
+
+  /**
+   * Queries the database to retrieve the list of records 
+   * based on arguments provided
+   * @param {Date} startDate - Lower bound value of createdAt field
+   * @param {Date} endDate - Upper bound value of createdAt field
+   * @param {Number} minCount - Lower bound of the sum of the items in the counts array fields
+   * @param {Number} maxCount - Upper bound of the sum of the items in the counts array fields
+   * @param {Number} skip - Query skip parameter
+   * @param {Number} limit - Maximum documents returned
+   * @returns {Object[]} - Array of documents in JSON
+   */
   async getRecords(
     startDate,
     endDate,

@@ -4,7 +4,7 @@ const router = express.Router();
 const RecordController = require('../controllers/record');
 const RecordValidation = require('../validations/record');
 
-// Get records
+// Endpoint for getting records
 router.post(
   '/list',
   RecordValidation.validateGetRecords,

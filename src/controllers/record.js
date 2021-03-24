@@ -1,7 +1,14 @@
-const { sendSuccessResponse } = require('../utils/response-handler');
 const RecordRepository = require('../repositories/RecordRepository');
+const { sendSuccessResponse } = require('../utils/response-handler');
 
-export async function getRecords(req, res, next) {
+/**
+ * Controller function that etrieves the list of records based on date and count
+ * @param {Request} req - Express request object
+ * @param {Response} res - Express response object
+ * @param {Next} next - Callback function
+ * @returns {Object} - Success response in JSON
+ */
+exports.getRecords = async function(req, res, next) {
   const {
     startDate,
     endDate,
@@ -19,9 +26,9 @@ export async function getRecords(req, res, next) {
 
     return sendSuccessResponse(
       res,
-      result,
+      result
     );
   } catch(error) {
     return next(error);
   }
-}
+};

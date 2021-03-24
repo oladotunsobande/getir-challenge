@@ -1,7 +1,14 @@
 const Joi = require('joi');
 const { sendErrorResponse } = require('../utils/response-handler');
 
-export function validateGetRecords(req, res, next) {
+/**
+ * Validates the request payload sent for retrieving records from the records collection
+ * @param {Request} req - Express request object
+ * @param {Response} res - Express response object
+ * @param {Next} next - Callback function
+ * @returns {Object} - Response in JSON
+ */
+exports.validateGetRecords = function(req, res, next) {
   const schema = Joi.object().keys({
     startDate: Joi.date()
       .format('YYYY-MM-DD')
@@ -29,4 +36,4 @@ export function validateGetRecords(req, res, next) {
   }
 
   return next();
-}
+};

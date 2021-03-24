@@ -1,6 +1,7 @@
 const express = require('express');
+const cors = require('cors');
 const morgan = require('morgan');
-const { json, urlencoded } = require('body-parser');
+const { json } = require('body-parser');
 
 const routes = require('./utils/routes');
 const { 
@@ -11,9 +12,17 @@ const {
 
 const app = express();
 
+// Enable HTTP request logging
+app.use(morgan('combined'));
+
+// Enable CORS
+app.use(cors());
+
+// CORS pre-flight
+app.options('*', cors());
+
 app.use(morgan('combined'));
 app.use(json());
-app.use(urlencoded({ extended: true }));
 
 // Routes
 routes(app);
