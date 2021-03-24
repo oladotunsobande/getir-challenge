@@ -22,7 +22,7 @@ app.use(cors());
 app.options('*', cors());
 
 app.use(morgan('combined'));
-app.use(json());
+app.use(json({ limit: '5MB' })); // Set limit to 5MB
 
 // Routes
 routes(app);

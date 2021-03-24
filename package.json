@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "node src/app.js",
-    "test": "DEBUG=true mocha --exit --timeout 5000 ./tests/*.test.js"
+    "test": "DEBUG=true mocha --exit --timeout 10000 ./tests/*.test.js"
   },
   "author": "Oladotun Sobande <oladutch@gmail.com>",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "joi": "^17.4.0",
+    "moment": "^2.29.1",
     "mongoose": "^5.12.2",
     "morgan": "^1.10.0",
     "winston": "^3.3.3"

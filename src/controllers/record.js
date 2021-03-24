@@ -1,4 +1,5 @@
 const RecordRepository = require('../repositories/RecordRepository');
+const { formatDate } = require('../helper');
 const { sendSuccessResponse } = require('../utils/response-handler');
 
 /**
@@ -17,16 +18,20 @@ exports.getRecords = async function(req, res, next) {
   } = req.body;
 
   try {
+    const formattedStartDate = formatDate(startDate);
+    const formattedEndDate = formatDate(endDate);
+
     const result = await RecordRepository.getRecords(
-      startDate,
-      endDate,
+      formattedStartDate,
+      formattedEndDate,
       minCount,
       maxCount,
     );
 
     return sendSuccessResponse(
       res,
-      result
+      'Success',
+      result,
     );
   } catch(error) {
     return next(error);

@@ -1,4 +1,5 @@
 const Joi = require('joi');
+
 const { sendErrorResponse } = require('../utils/response-handler');
 
 /**
@@ -10,11 +11,8 @@ const { sendErrorResponse } = require('../utils/response-handler');
  */
 exports.validateGetRecords = function(req, res, next) {
   const schema = Joi.object().keys({
-    startDate: Joi.date()
-      .format('YYYY-MM-DD')
-      .required(),
+    startDate: Joi.date().required(),
     endDate: Joi.date()
-      .format('YYYY-MM-DD')
       .greater(Joi.ref('startDate'))
       .required(),
     minCount: Joi.number()
@@ -32,7 +30,11 @@ exports.validateGetRecords = function(req, res, next) {
       ? validation.error.message
       : validation.error.details[0].message;
 
-    return sendErrorResponse(res, message);
+    return sendErrorResponse(
+      res, 
+      400,
+      message
+    );
   }
 
   return next();

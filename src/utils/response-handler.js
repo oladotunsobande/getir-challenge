@@ -9,7 +9,7 @@ const logger = require('./logger');
  */
 function sendSuccessResponse(
   res,
-  message = 'Success',
+  message,
   data = null,
 ) {
   return res.status(200).send({
