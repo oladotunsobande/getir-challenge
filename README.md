@@ -14,7 +14,7 @@ To setup the app, you need the following dependencies installed on your computer
 Clone the following git repository:
 
 ```
-$ git clone https://bitbucket.org/softcomdev/gs3-api.git
+$ git clone https://github.com/oladotunsobande/getir-challenge.git
 ```
 
 Install all dependencies:
